@@ -7,7 +7,7 @@ terraform {
   }
  # Adding Backend as S3 for Remote State Storage
   backend "s3" {
-    bucket = "nvdevopsprojectbucket-3"
+    bucket = "nvdevopsprojectbucket-2"
     key    = "raji/terraform.tfstate"
     region = "us-east-1"   
   }
