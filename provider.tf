@@ -6,10 +6,11 @@ terraform {
     }
   }
  # Adding Backend as S3 for Remote State Storage
-  backend "s3" {
-    bucket = "nvdevopsprojectbucket-2"
-    key    = "raji/terraform.tfstate"
-    region = "us-east-1"   
+bucket         = "nvdevprojectbucket-2"
+    key            = "eks-cluster/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "terraform-locks"   # optional, only if you use state locking
+    encrypt        = true
   }
 }
 
