@@ -52,24 +52,6 @@ module "eks" {
   # Cluster logging
   cluster_enabled_log_types = ["api", "audit", "authenticator"]
 
-  # Fix IAM inline policy
-  cluster_iam_role_additional_policies = {
-    "raji_cluster-cluster" = jsonencode({
-      Statement = [
-        {
-          Action   = [
-            "logs:CreateLogGroup",
-            "logs:CreateLogStream",
-            "logs:PutLogEvents"
-          ]
-          Effect   = "Allow"
-          Resource = "*"
-        }
-      ]
-      Version = "2012-10-17"
-    })
-  }
-
   tags = local.tags
 }
 
